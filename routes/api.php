@@ -17,10 +17,10 @@ Route::middleware('auth:api')->group(function () {
 
     Route::get('/albums', 'AlbumController@index')->name('albums.all');
     Route::post('/albums', 'AlbumController@store')->name('albums.store');
-    Route::get('/albums/{album}', 'AlbumController@show')->name('albums.show');
-    Route::put('/albums/{album}', 'AlbumController@update')->name('albums.update');
-    Route::delete('/albums/{album}', 'AlbumController@destroy')->name('albums.destroy');
     Route::get('albums/search', 'AlbumController@search');
+    Route::get('/albums/{id}', 'AlbumController@show')->name('albums.show');
+    Route::put('/albums/{id}', 'AlbumController@update')->name('albums.update');
+    Route::delete('/albums/{id}', 'AlbumController@destroy')->name('albums.destroy');
 
     Route::post('/logout', 'AuthController@logout');
 });
