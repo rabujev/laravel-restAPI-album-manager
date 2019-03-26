@@ -108,4 +108,25 @@ class albumController extends Controller
              'message' => 'Successfully deleted album!'
          ]);
      }
+
+     public function search(Request $request)
+    {
+
+        if ($request->has('id')) {
+
+            $res = Albums::find($request->input('id'));
+            return $res ? $res : 'raté.';
+        }
+
+        elseif ($request->has('string')) {
+
+            $res = Albums::where(
+                'artists', 'LIKE', '%'.$request->input('string').'%')->orWhere(
+                'name', 'LIKE', '%'.$request->input('string').'%')->get();
+            return $res ? $res : 'raté.';
+         }
+
+        return 'the search has yielded no result';
+
+    }
 }
