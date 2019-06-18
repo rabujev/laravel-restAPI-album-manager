@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
+
 Route::middleware('auth:api')->group(function () {
 
     Route::get('/albums', 'AlbumController@index')->name('albums.all');

@@ -16,3 +16,4 @@ class Album extends Model
       'artists',
       'songs'    ];
 }
+//Fillable form
